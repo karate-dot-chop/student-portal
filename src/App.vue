@@ -6,6 +6,7 @@
       <router-link to="/capstone">Capstone</router-link> |
       <router-link to="/resumes">Resume</router-link> |
       <router-link to="/logout">Logout</router-link> |
+      <router-link to="/education/:id/edit">Edit Education</router-link> |
     </div>
     <router-view />
   </div>

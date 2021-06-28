@@ -1,7 +1,5 @@
 <template>
   <div class="capstone">
-    <h1>The Student Capstone</h1>
-    <p>{{ message }}</p>
     <p>{{ capstone }}</p>
     <form v-on:submit.prevent="updateCapstone()">
       <h1>Edit Capstone</h1>

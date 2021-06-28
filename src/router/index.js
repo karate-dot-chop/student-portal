@@ -2,8 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
-import ResumesIndex from "../views/resumes/Index.vue";
+import Capstone from "../views/Capstone.vue";
 import ResumesShow from "../views/resumes/Show.vue";
+
 
 Vue.use(VueRouter);
 
@@ -19,9 +20,9 @@ const routes = [
     component: Logout,
   },
   {
-    path: "/resumes",
-    name: "resumes-index",
-    component: ResumesIndex,
+    path: "/capstone",
+    name: "capstone",
+    component: Capstone,
   },
   {
     path: "/resumes/:id",

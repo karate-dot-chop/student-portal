@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import Capstone from "../views/Capstone.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/logout",
     name: "logout",
     component: Logout,
+  },
+  {
+    path: "/capstone",
+    name: "capstone",
+    component: Capstone,
   },
   {
     path: "/about",

@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/">Login</router-link> |
       <router-link to="/about">Better Student Profile</router-link> |
+      <router-link to="/capstone">Capstone</router-link> |
       <router-link to="/logout">Logout</router-link> |
     </div>
     <router-view />

@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Capstone from "../views/Capstone.vue";
+import ResumesShow from "../views/resumes/Show.vue";
+
 
 Vue.use(VueRouter);
 
@@ -21,6 +23,11 @@ const routes = [
     path: "/capstone",
     name: "capstone",
     component: Capstone,
+  },
+  {
+    path: "/resumes/:id",
+    name: "resumes-show",
+    component: ResumesShow,
   },
   {
     path: "/about",

@@ -1,9 +1,7 @@
 <template>
   <div class="experience-edit">
-    <h1>Experiences</h1>
-    <p>{{ experience }}</p>
-    <form v-on:submit.prevent="updateexperience()">
-      <h1>Edit experience</h1>
+    <form v-on:submit.prevent="updateExperience()">
+      <h1>Edit Experience</h1>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
           {{ error }}
@@ -58,6 +56,7 @@
 
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
+    <p>{{ experience }}</p>
   </div>
 </template>
 

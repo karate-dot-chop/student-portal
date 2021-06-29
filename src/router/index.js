@@ -2,10 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
-import CapstoneEdit from "../views/CapstoneEdit.vue";
+import CapstonesEdit from "../views/CapstonesEdit.vue";
 import StudentsEdit from "../views/StudentsEdit.vue";
-import EducationEdit from "../views/EducationEdit.vue";
-import SkillsEdit from "../views/SkillsEdit.vue";
+import EducationsEdit from "../views/EducationsEdit.vue";
 import ExperiencesEdit from "../views/ExperiencesEdit.vue";
 import Profile from "../views/Profile.vue";
 
@@ -23,14 +22,14 @@ const routes = [
     component: Logout,
   },
   {
-    path: "/capstone/:id/edit",
-    name: "capstone-edit",
-    component: CapstoneEdit,
+    path: "/capstones/:id/edit",
+    name: "capstones-edit",
+    component: CapstonesEdit,
   },
   {
-    path: "/education/:id/edit",
-    name: "education-edit",
-    component: EducationEdit,
+    path: "/educations/:id/edit",
+    name: "educations-edit",
+    component: EducationsEdit,
   },
   {
     path: "/profile",
@@ -41,11 +40,6 @@ const routes = [
     path: "/students/:id/edit",
     name: "students-edit",
     component: StudentsEdit,
-  },
-  {
-    path: "/skills/:id/edit",
-    name: "skills-edit",
-    component: SkillsEdit,
   },
   {
     path: "/experiences/:id/edit",

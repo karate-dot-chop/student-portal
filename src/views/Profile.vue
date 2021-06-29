@@ -2,7 +2,17 @@
   <div class="about">
     <div>
       <h1>Student Profile</h1>
-      <p>{{ currentStudent }}</p>
+      <p>{{ currentStudent.first_name }}</p>
+      <p>{{ currentStudent.last_name }}</p>
+      <p>{{ currentStudent.email }}</p>
+      <p>{{ currentStudent.phone_number }}</p>
+      <p>{{ currentStudent.bio }}</p>
+      <p>{{ currentStudent.linkedin_url }}</p>
+      <p>{{ currentStudent.twitter_handle }}</p>
+      <p>{{ currentStudent.personal_url }}</p>
+      <p>{{ currentStudent.resume_url }}</p>
+      <p>{{ currentStudent.github_url }}</p>
+      <p>{{ currentStudent.photo_url }}</p>
       <router-link to="/students/:id/edit">Edit Student Info</router-link>
     </div>
     <div>
@@ -18,6 +28,7 @@
     <div>
       <h1>Skills</h1>
       <p>{{ skills }}</p>
+      <button v-on:click="destroySkill">Delete</button>
     </div>
     <div>
       <h1>Capstone</h1>
@@ -28,7 +39,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
   data: function () {
     return {
@@ -78,14 +89,7 @@ export default {
           details: "Responsible for driving the software development process towards quality-centric methodologies.",
         },
       ],
-      skills: [
-        "basket weaving",
-        "motocross",
-        "painting",
-        "crypto trading",
-        "kayaking",
-        "python",
-      ],
+      skills: ["basket weaving", "motocross", "painting", "crypto trading", "kayaking", "python"],
       capstones: [
         {
           name: "Netflix-Clone",
@@ -95,18 +99,30 @@ export default {
         },
         {
           name: "StitchFixes",
-          description: "Created a full-stack application where users can shop for clothes online and get recommendations for outfits",
+          description:
+            "Created a full-stack application where users can shop for clothes online and get recommendations for outfits",
           url: "",
           image: "",
         },
         {
           name: "HiFresh",
-          description: "Created a full-stack application where users can search for recipes based off of their pantry ingredients",
+          description:
+            "Created a full-stack application where users can search for recipes based off of their pantry ingredients",
           url: "",
           image: "",
         },
       ],
     };
+  },
+  methods: {
+    destroySkill: function () {
+      if (confirm("Are you sure you want to delete this skill?")) {
+        axios.delete(`/skills/${this.skill.id}`).then((response) => {
+          console.log(response.data);
+          this.$router.push("/skills");
+        });
+      }
+    },
   },
 };
 </script>

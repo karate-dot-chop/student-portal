@@ -10,24 +10,19 @@
       </ul>
 
       <div class="form-group">
-        <label>Name: </label>
+        <label>Name:</label>
         <input type="text" class="form-control" v-model="capstone.name" />
       </div>
       <div class="form-group">
-        <label>Description: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="capstone.description"
-          placeholder="name"
-        />
+        <label>Description:</label>
+        <input type="text" class="form-control" v-model="capstone.description" placeholder="name" />
       </div>
       <div class="form-group">
-        <label>Url: </label>
+        <label>Url:</label>
         <input type="text" class="form-control" v-model="capstone.url" />
       </div>
       <div class="form-group">
-        <label>Image: </label>
+        <label>Image:</label>
         <input type="text" class="form-control" v-model="capstone.image" />
       </div>
 

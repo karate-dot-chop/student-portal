@@ -8,7 +8,8 @@
       <router-link to="/logout">Logout</router-link> |
       <router-link to="/students/:id/edit">Edit Student Info</router-link> |
       <router-link to="/skills/:id/edit">Edit Skills</router-link> |
-      <router-link to="/education/:id/edit">Edit Education</router-link>
+      <router-link to="/education/:id/edit">Edit Education</router-link> |
+      <router-link to="/experiences/:id/edit">Edit Experience</router-link>
     </div>
     <router-view />
   </div>

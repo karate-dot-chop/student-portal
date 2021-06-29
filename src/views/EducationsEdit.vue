@@ -91,7 +91,7 @@ export default {
     },
     destroyEducation: function () {
       if (confirm("Would you like to delete this instance?")) {
-        axios.delete(`/educations/${this.recipe.id}`).then((response) => {
+        axios.delete(`/educations/${this.education.id}`).then((response) => {
           console.log(response.data);
           this.$router.push("/profile");
         });

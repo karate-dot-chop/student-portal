@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable prettier/prettier */
 <template>
   <div class="experience-edit">
     <form v-on:submit.prevent="updateExperience()">
@@ -7,14 +9,13 @@
           {{ error }}
         </li>
       </ul>
-
       <div class="form-group">
         <label>Start Date: </label>
         <input
           type="text"
           class="form-control"
           v-model="experience.start_date"
-          placeholder="start date"
+          placeholder="Start Date"
         />
       </div>
       <div class="form-group">
@@ -23,7 +24,7 @@
           type="text"
           class="form-control"
           v-model="experience.end_date"
-          placeholder="end date"
+          placeholder="End Date"
         />
       </div>
       <div class="form-group">
@@ -32,7 +33,7 @@
           type="text"
           class="form-control"
           v-model="experience.job_title"
-          placeholder="job title"
+          placeholder="Job Title"
         />
       </div>
       <div class="form-group">
@@ -41,7 +42,7 @@
           type="text"
           class="form-control"
           v-model="experience.company_name"
-          placeholder="company name"
+          placeholder="Company Name"
         />
       </div>
       <div class="form-group">
@@ -50,11 +51,11 @@
           type="text"
           class="form-control"
           v-model="experience.details"
-          placeholder="details"
+          placeholder="Details"
         />
       </div>
-
       <input type="submit" class="btn btn-primary" value="Submit" />
+      <button v-on:click="destroyExperience()">Delete</button>
     </form>
     <p>{{ experience }}</p>
   </div>
@@ -65,7 +66,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "This is the Experience Edit Page!",
+      errors: [],
       experience: {
         start_date: "",
         end_date: "",
@@ -76,17 +77,31 @@ export default {
     };
   },
   created: function () {
-    axios.get(`"/experience/${this.$route.params.id}"`).then((response) => {
-      console.log("experience Object: ", response.data);
+    axios.get(`/experiences/${this.$route.params.id}`).then((response) => {
+      console.log("Experiences Object: ", response.data);
       this.experience = response.data;
     });
   },
   methods: {
     updateExperience: function () {
-      axios.patch(`"/experience/${this.$route.params.id}"`).then((response) => {
-        console.log("Updated Capstone Object:", response.data);
-        this.experience = response.data;
-      });
+      axios
+        .patch(`"/experience/${this.$route.params.id}"`)
+        .then((response) => {
+          console.log("Updated Capstone Object:", response.data);
+          this.experiences = response.data;
+          this.$router.push("/profile");
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
+    },
+    destroyExperience: function () {
+      if (confirm("Are you sure?")) {
+        axios.delete(`/experiences/${this.experience.id}`).then((response) => {
+          console.log(response.data);
+          this.$router.push("/profile");
+        });
+      }
     },
   },
 };

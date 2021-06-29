@@ -28,6 +28,9 @@
     <div>
       <h1>Skills</h1>
       <p>{{ skills }}</p>
+      <h2>Add a Skill</h2>
+      <input type="text" v-model="editSkill" />
+      <button v-on:click="createSkill">Add Skill</button>
       <button v-on:click="destroySkill">Delete</button>
     </div>
     <div>
@@ -79,17 +82,21 @@ export default {
           end_date: "2020",
           job_title: "Junior Software Engineer",
           company_name: "Volta Charging",
-          details: "Architect onboard data processing and machine learning solutions.",
+          details:
+            "Architect onboard data processing and machine learning solutions.",
         },
         {
           start_date: "2020",
           end_date: "2021",
           job_title: "Software Development Engineer",
           company_name: "WANdisco",
-          details: "Responsible for driving the software development process towards quality-centric methodologies.",
+          details:
+            "Responsible for driving the software development process towards quality-centric methodologies.",
         },
       ],
-      skills: ["basket weaving", "motocross", "painting", "crypto trading", "kayaking", "python"],
+      skills: [],
+      editSkill: "",
+      editStudent: "",
       capstones: [
         {
           name: "Netflix-Clone",
@@ -114,6 +121,16 @@ export default {
       ],
     };
   },
+  created: function () {
+    axios.get(`/students/${this.$route.params.id}`).then((response) => {
+      console.log("Students Object: ", response.data);
+      this.editStudent = response.data;
+    });
+    axios.get(`/skills/${this.$route.params.id}`).then((response) => {
+      console.log("Skills Object: ", response.data);
+      this.editSkill = response.data;
+    });
+  },
   methods: {
     destroySkill: function () {
       if (confirm("Are you sure you want to delete this skill?")) {
@@ -122,6 +139,17 @@ export default {
           this.$router.push("/skills");
         });
       }
+    },
+    createSkill: function () {
+      axios
+        .post("/skills", this.editSkill)
+        .then((response) => {
+          console.log(response.data);
+          this.skills.push(response.data);
+        })
+        .catch((error) => {
+          console.log(error.response.data.errors);
+        });
     },
   },
 };

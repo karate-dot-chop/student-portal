@@ -2,14 +2,14 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Login</router-link> |
-      <router-link to="/about">Better Student Profile</router-link> |
-      <router-link to="/capstone">Capstone</router-link> |
       <router-link to="/resumes">Resume</router-link> |
       <router-link to="/logout">Logout</router-link> |
+      <router-link to="/Profile">Student Profile</router-link> |
       <router-link to="/students/:id/edit">Edit Student Info</router-link> |
-      <router-link to="/skills/:id/edit">Edit Skills</router-link> |
       <router-link to="/education/:id/edit">Edit Education</router-link> |
-      <router-link to="/experiences/:id/edit">Edit Experience</router-link>
+      <router-link to="/experiences/:id/edit">Edit Experience</router-link> |
+      <router-link to="/skills/:id/edit">Edit Skills</router-link> |
+      <router-link to="/capstone/:id/edit">Edit Capstone</router-link>
     </div>
     <router-view />
   </div>

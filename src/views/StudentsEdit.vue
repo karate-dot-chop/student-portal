@@ -10,95 +10,48 @@
       </ul>
 
       <div class="form-group">
-        <label>First Name: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.first_name"
-        />
+        <label>First Name:</label>
+        <input type="text" class="form-control" v-model="currentStudent.first_name" />
       </div>
       <div class="form-group">
-        <label>Last Name: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.last_name"
-          placeholder="name"
-        />
+        <label>Last Name:</label>
+        <input type="text" class="form-control" v-model="currentStudent.last_name" placeholder="name" />
       </div>
       <div class="form-group">
-        <label>Email: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.email"
-        />
+        <label>Email:</label>
+        <input type="text" class="form-control" v-model="currentStudent.email" />
       </div>
       <div class="form-group">
-        <label>Phone Number: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.phone_number"
-        />
+        <label>Phone Number:</label>
+        <input type="text" class="form-control" v-model="currentStudent.phone_number" />
       </div>
       <div class="form-group">
-        <label>Bio: </label>
+        <label>Bio:</label>
         <input type="text" class="form-control" v-model="currentStudent.bio" />
       </div>
       <div class="form-group">
-        <label>LinkedIn: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.linkedin_url"
-          placeholder="LinkedIn URL"
-        />
+        <label>LinkedIn:</label>
+        <input type="text" class="form-control" v-model="currentStudent.linkedin_url" placeholder="LinkedIn URL" />
       </div>
       <div class="form-group">
-        <label>Twitter: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.twitter_handle"
-          placeholder="Twitter Handle"
-        />
+        <label>Twitter:</label>
+        <input type="text" class="form-control" v-model="currentStudent.twitter_handle" placeholder="Twitter Handle" />
       </div>
       <div class="form-group">
-        <label>Personal Site: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.personal_url"
-          placeholder="Personal Web Site"
-        />
+        <label>Personal Site:</label>
+        <input type="text" class="form-control" v-model="currentStudent.personal_url" placeholder="Personal Web Site" />
       </div>
       <div class="form-group">
-        <label>Resume: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.resume_url"
-          placeholder="Resume URL"
-        />
+        <label>Resume:</label>
+        <input type="text" class="form-control" v-model="currentStudent.resume_url" placeholder="Resume URL" />
       </div>
       <div class="form-group">
-        <label>Github: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.github_url"
-          placeholder="Github URL"
-        />
+        <label>Github:</label>
+        <input type="text" class="form-control" v-model="currentStudent.github_url" placeholder="Github URL" />
       </div>
       <div class="form-group">
-        <label>Photo: </label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="currentStudent.photo_url"
-          placeholder="Profile Photo URL"
-        />
+        <label>Photo:</label>
+        <input type="text" class="form-control" v-model="currentStudent.photo_url" placeholder="Profile Photo URL" />
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" />

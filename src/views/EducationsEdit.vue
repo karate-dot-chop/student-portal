@@ -55,7 +55,7 @@
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" />
-      <button v-on:click="destroyEducation()">Delete Post</button>
+      <button v-on:click="destroyEducation()">Delete Education</button>
     </form>
     <p>{{ education }}</p>
   </div>

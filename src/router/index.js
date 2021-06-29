@@ -5,7 +5,7 @@ import Logout from "../views/Logout.vue";
 import Capstone from "../views/Capstone.vue";
 import ResumesShow from "../views/resumes/Show.vue";
 import StudentsEdit from "../views/StudentsEdit.vue";
-
+import SkillsEdit from "../views/SkillsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -42,6 +42,11 @@ const routes = [
     path: "/students/:id/edit",
     name: "students-edit",
     component: StudentsEdit,
+  },
+  {
+    path: "/skills/:id/edit",
+    name: "skills-edit",
+    component: SkillsEdit,
   },
 ];
 

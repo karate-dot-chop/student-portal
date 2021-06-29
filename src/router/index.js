@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
-import CapstoneEdit from "../views/Capstone.vue";
+import CapstoneEdit from "../views/CapstoneEdit.vue";
 import StudentsEdit from "../views/StudentsEdit.vue";
 import EducationEdit from "../views/EducationEdit.vue";
 import SkillsEdit from "../views/SkillsEdit.vue";

@@ -1,5 +1,5 @@
 <template>
-  <div class="capstones">
+  <div class="capstones-edit">
     <form v-on:submit.prevent="editCapstone()">
       <h1>Edit Capstone</h1>
       <div class="form-group">

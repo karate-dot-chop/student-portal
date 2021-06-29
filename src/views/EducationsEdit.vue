@@ -55,6 +55,7 @@
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" />
+      <button v-on:click="destroyEducation()">Delete Post</button>
     </form>
     <p>{{ education }}</p>
   </div>
@@ -87,6 +88,14 @@ export default {
         console.log("Updated Capstone Object:", response.data);
         this.education = response.data;
       });
+    },
+    destroyEducation: function () {
+      if (confirm("Would you like to delete this instance?")) {
+        axios.delete(`/educations/${this.recipe.id}`).then((response) => {
+          console.log(response.data);
+          this.$router.push("/profile");
+        });
+      }
     },
   },
 };

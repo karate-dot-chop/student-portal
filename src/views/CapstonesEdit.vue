@@ -1,6 +1,5 @@
 <template>
   <div class="capstone">
-    <p>{{ capstone }}</p>
     <form v-on:submit.prevent="updateCapstone()">
       <h1>Edit Capstone</h1>
       <ul>
@@ -15,7 +14,12 @@
       </div>
       <div class="form-group">
         <label>Description:</label>
-        <input type="text" class="form-control" v-model="capstone.description" placeholder="name" />
+        <input
+          type="text"
+          class="form-control"
+          v-model="capstone.description"
+          placeholder="name"
+        />
       </div>
       <div class="form-group">
         <label>Url:</label>
@@ -23,11 +27,17 @@
       </div>
       <div class="form-group">
         <label>Image:</label>
-        <input type="text" class="form-control" v-model="capstone.image" />
+        <input
+          type="text"
+          class="form-control"
+          v-model="capstone.screenshot"
+          placeholder="Capstone Screenshot Image"
+        />
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
+    <p>{{ capstone }}</p>
   </div>
 </template>
 
@@ -41,7 +51,7 @@ export default {
         name: "",
         description: "",
         url: "",
-        image: "",
+        screenshot: "",
       },
     };
   },

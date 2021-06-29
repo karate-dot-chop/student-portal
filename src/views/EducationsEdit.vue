@@ -1,7 +1,5 @@
 <template>
   <div class="education-edit">
-    <h1>Education</h1>
-    <p>{{ education }}</p>
     <form v-on:submit.prevent="updateEducation()">
       <h1>Edit Education</h1>
       <ul>
@@ -58,6 +56,7 @@
 
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
+    <p>{{ education }}</p>
   </div>
 </template>
 

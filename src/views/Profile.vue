@@ -7,7 +7,7 @@
     </div>
     <div>
       <h1>Education</h1>
-      <router-link to="/education/:id/edit">Edit Education</router-link>
+      <router-link to="/educations/:id/edit">Edit Education</router-link>
       <p>{{ education }}</p>
     </div>
     <div>
@@ -17,12 +17,11 @@
     </div>
     <div>
       <h1>Skills</h1>
-      <router-link to="/skills/:id/edit">Edit Skills</router-link>
       <p>{{ skills }}</p>
     </div>
     <div>
       <h1>Capstone</h1>
-      <router-link to="/capstone/:id/edit">Edit Capstone</router-link>
+      <router-link to="/capstones/:id/edit">Edit Capstone</router-link>
       <p>{{ capstone }}</p>
     </div>
   </div>
@@ -35,9 +34,9 @@ export default {
     return {
       message: "Welcome to Vue.js!",
       currentStudent: {
-        first_name: "",
-        last_name: "",
-        email: "",
+        first_name: "Brianna",
+        last_name: "Samson",
+        email: "bSamson@gmail.com",
         phone_number: "",
         bio: "",
         linkedin_url: "",
@@ -47,20 +46,73 @@ export default {
         github_url: "",
         photo_url: "",
       },
-      education: {
-        start_date: "",
-        end_date: "",
-        degree: "",
-        university: "",
-        details: "",
-      },
-      experience: {
-        start_date: "",
-        end_date: "",
-        job_title: "",
-        company_name: "",
-        details: "",
-      },
+      educations: [
+        {
+          start_date: "",
+          end_date: "",
+          degree: "",
+          university: "",
+          details: "",
+        },
+        {
+          start_date: "",
+          end_date: "",
+          degree: "",
+          university: "",
+          details: "",
+        },
+        {
+          start_date: "",
+          end_date: "",
+          degree: "",
+          university: "",
+          details: "",
+        },
+        {
+          start_date: "",
+          end_date: "",
+          degree: "",
+          university: "",
+          details: "",
+        },
+        {
+          start_date: "",
+          end_date: "",
+          degree: "",
+          university: "",
+          details: "",
+        },
+      ],
+      experiences: [
+        {
+          start_date: "",
+          end_date: "",
+          job_title: "",
+          company_name: "",
+          details: "",
+        },
+        {
+          start_date: "",
+          end_date: "",
+          job_title: "",
+          company_name: "",
+          details: "",
+        },
+        {
+          start_date: "",
+          end_date: "",
+          job_title: "",
+          company_name: "",
+          details: "",
+        },
+        {
+          start_date: "",
+          end_date: "",
+          job_title: "",
+          company_name: "",
+          details: "",
+        },
+      ],
       skills: [
         "basket weaving",
         "motocross",
@@ -69,12 +121,26 @@ export default {
         "kayaking",
         "python",
       ],
-      capstone: {
-        name: "",
-        description: "",
-        url: "",
-        image: "",
-      },
+      capstones: [
+        {
+          name: "",
+          description: "",
+          url: "",
+          image: "",
+        },
+        {
+          name: "",
+          description: "",
+          url: "",
+          image: "",
+        },
+        {
+          name: "",
+          description: "",
+          url: "",
+          image: "",
+        },
+      ],
     };
   },
 };

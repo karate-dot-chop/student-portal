@@ -8,12 +8,12 @@
     <div>
       <h1>Education</h1>
       <router-link to="/educations/:id/edit">Edit Education</router-link>
-      <p>{{ education }}</p>
+      <p>{{ educations }}</p>
     </div>
     <div>
       <h1>Experience</h1>
       <router-link to="/experiences/:id/edit">Edit Experience</router-link>
-      <p>{{ experience }}</p>
+      <p>{{ experiences }}</p>
     </div>
     <div>
       <h1>Skills</h1>
@@ -22,7 +22,7 @@
     <div>
       <h1>Capstone</h1>
       <router-link to="/capstones/:id/edit">Edit Capstone</router-link>
-      <p>{{ capstone }}</p>
+      <p>{{ capstones }}</p>
     </div>
   </div>
 </template>

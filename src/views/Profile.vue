@@ -2,44 +2,71 @@
   <div class="about">
     <div>
       <h1>Student Profile</h1>
-      <p>{{ currentStudent.first_name }}</p>
-      <p>{{ currentStudent.last_name }}</p>
-      <p>{{ currentStudent.email }}</p>
-      <p>{{ currentStudent.phone_number }}</p>
-      <p>{{ currentStudent.bio }}</p>
-      <p>{{ currentStudent.linkedin_url }}</p>
-      <p>{{ currentStudent.twitter_handle }}</p>
-      <p>{{ currentStudent.personal_url }}</p>
-      <p>{{ currentStudent.resume_url }}</p>
-      <p>{{ currentStudent.github_url }}</p>
-      <p>{{ currentStudent.photo_url }}</p>
+      <p><b>First Name: </b>{{ currentStudent.first_name }}</p>
+      <p><b>Last Name: </b>{{ currentStudent.last_name }}</p>
+      <p><b>Email: </b>{{ currentStudent.email }}</p>
+      <p><b>Phone: </b>{{ currentStudent.phone_number }}</p>
+      <p><b>Bio: </b>{{ currentStudent.bio }}</p>
+      <p><b>LinkedIn: </b>{{ currentStudent.linkedin_url }}</p>
+      <p><b>Twitter: </b>{{ currentStudent.twitter_handle }}</p>
+      <p><b>Personal Site: </b>{{ currentStudent.personal_url }}</p>
+      <p><b>Resume: </b>{{ currentStudent.resume_url }}</p>
+      <p><b>Github: </b>{{ currentStudent.github_url }}</p>
+      <p><b>Photo Url: </b>{{ currentStudent.photo_url }}</p>
       <router-link to="/students/:id/edit">Edit Student Info</router-link>
     </div>
     <div>
       <h1>Education</h1>
-      <router-link to="/educations/:id/edit">Edit Education</router-link>
-      <p>{{ educations }}</p>
+      <div v-for="education in educations" v-bind:key="education.id">
+        <p><b>Univeristy:</b> {{ education.university }}</p>
+        <p><b>Degree:</b> {{ education.degree }}</p>
+        <p><b>Start Date:</b> {{ education.start_date }}</p>
+        <p><b>End_Date:</b> {{ education.end_date }}</p>
+        <p><b>Details:</b> {{ education.details }}</p>
+        <router-link to="/educations/:id/edit">Edit Education</router-link>
+      </div>
     </div>
     <div>
       <h1>Experience</h1>
-      <router-link to="/experiences/:id/edit">Edit Experience</router-link>
-      <p>{{ experiences }}</p>
+      <div v-for="experience in experiences" v-bind:key="experience.id">
+        <p><b>Company:</b> {{ experience.company_name }}</p>
+        <p><b>Job Title:</b> {{ experience.job_title }}</p>
+        <p><b>Start Date:</b> {{ experience.start_date }}</p>
+        <p><b>End Date:</b> {{ experience.end_date }}</p>
+        <p><b>Details:</b> {{ experience.details }}</p>
+        <router-link to="/experiences/:id/edit">Edit Experience</router-link>
+      </div>
     </div>
     <div>
       <h1>Skills</h1>
-      <p>{{ skills }}</p>
-      <h2>Add a Skill</h2>
-      <input type="text" v-model="editSkill" />
-      <button v-on:click="createSkill">Add Skill</button>
-      <button v-on:click="destroySkill">Delete</button>
+      <div v-for="skill in skills" v-bind:key="skill.id">
+        <p>
+          {{ skill.name }} <button v-on:click="destroySkill">Delete</button>
+        </p>
+      </div>
+      <div>
+        <input v-model="newSkill" type="text" placeholder="New Skill" />
+        <button v-on:click="createSkill()">Add Skill</button>
+      </div>
     </div>
     <div>
-      <h1>Capstone</h1>
-      <router-link to="/capstones/:id/edit">Edit Capstone</router-link>
-      <p>{{ capstones }}</p>
+      <h1>Capstones</h1>
+      <div v-for="capstone in capstones" v-bind:key="capstone.id">
+        <p><b>Name:</b> {{ capstone.name }}</p>
+        <p><b>Description:</b> {{ capstone.description }}</p>
+        <p><b>URL:</b> {{ capstone.url }}</p>
+        <p><b>Image:</b> {{ capstone.image }}</p>
+        <router-link to="/capstones/:id/edit">Edit Capstone</router-link>
+      </div>
     </div>
   </div>
 </template>
+
+<style>
+p b {
+  font-weight: bold;
+}
+</style>
 
 <script>
 import axios from "axios";
@@ -94,9 +121,9 @@ export default {
             "Responsible for driving the software development process towards quality-centric methodologies.",
         },
       ],
-      skills: [],
-      editSkill: "",
+      skills: [{ name: "basketweaving" }, { name: "carrot shaving" }],
       editStudent: "",
+      newSkill: "",
       capstones: [
         {
           name: "Netflix-Clone",
@@ -130,6 +157,10 @@ export default {
       console.log("Skills Object: ", response.data);
       this.editSkill = response.data;
     });
+    axios.get("/educations").then((response) => {
+      console.log("Skills Object: ", response.data);
+      this.educations = response.data;
+    });
   },
   methods: {
     destroySkill: function () {
@@ -142,7 +173,7 @@ export default {
     },
     createSkill: function () {
       axios
-        .post("/skills", this.editSkill)
+        .post("/skills", this.newSkill)
         .then((response) => {
           console.log(response.data);
           this.skills.push(response.data);

@@ -8,12 +8,7 @@
       </div>
       <div class="form-group">
         <label>Description:</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="editCapstone.description"
-          placeholder="name"
-        />
+        <input type="text" class="form-control" v-model="editCapstone.description" />
       </div>
       <div class="form-group">
         <label>Url:</label>
@@ -21,11 +16,7 @@
       </div>
       <div class="form-group">
         <label>Image:</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="editCapstone.screenshot"
-        />
+        <input type="text" class="form-control" v-model="editCapstone.screenshot" />
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" />
@@ -35,7 +26,6 @@
         {{ error }}
       </li>
     </ul>
-    <button v-on:click="deleteCaptstone()">Delete Capstone</button>
   </div>
 </template>
 

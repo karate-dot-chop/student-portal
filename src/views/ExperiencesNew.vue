@@ -1,31 +1,26 @@
 <template>
   <div class="experiences-new">
     <form v-on:submit.prevent="newExperience()">
-      <h1>Create New Capstone</h1>
+      <h1>Create New Experience</h1>
       <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="editExperience.name" />
+        <label>Start Date:</label>
+        <input type="text" class="form-control" v-model="editExperience.start_date" />
       </div>
       <div class="form-group">
-        <label>Description:</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="editExperience.description"
-          placeholder="name"
-        />
+        <label>End Date:</label>
+        <input type="text" class="form-control" v-model="editExperience.end_date" />
       </div>
       <div class="form-group">
-        <label>Url:</label>
-        <input type="text" class="form-control" v-model="editExperience.url" />
+        <label>Job Title:</label>
+        <input type="text" class="form-control" v-model="editExperience.job_title" />
       </div>
       <div class="form-group">
-        <label>Image:</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="editExperience.screenshot"
-        />
+        <label>Company:</label>
+        <input type="text" class="form-control" v-model="editExperience.company_name" />
+      </div>
+      <div class="form-group">
+        <label>Details:</label>
+        <input type="text" class="form-control" v-model="editExperience.details" />
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" />
@@ -35,7 +30,6 @@
         {{ error }}
       </li>
     </ul>
-    <button v-on:click="deleteCaptstone()">Delete Capstone</button>
   </div>
 </template>
 
@@ -46,10 +40,11 @@ export default {
     return {
       errors: [],
       editExperience: {
-        name: "",
-        description: "",
-        url: "",
-        screenshot: "",
+        start_date: "",
+        end_date: "",
+        job_title: "",
+        company_name: "",
+        details: "",
       },
     };
   },

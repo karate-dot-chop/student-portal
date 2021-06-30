@@ -3,29 +3,24 @@
     <form v-on:submit.prevent="newCapstone()">
       <h1>Create New Education</h1>
       <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="editEducation.name" />
+        <label>Start Date:</label>
+        <input type="text" class="form-control" v-model="editEducation.start_date" />
       </div>
       <div class="form-group">
-        <label>Description:</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="editEducation.description"
-          placeholder="name"
-        />
+        <label>End Date:</label>
+        <input type="text" class="form-control" v-model="editEducation.end_date" />
       </div>
       <div class="form-group">
-        <label>Url:</label>
-        <input type="text" class="form-control" v-model="editEducation.url" />
+        <label>Degree:</label>
+        <input type="text" class="form-control" v-model="editEducation.degree" />
       </div>
       <div class="form-group">
-        <label>Image:</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="editEducation.screenshot"
-        />
+        <label>University:</label>
+        <input type="text" class="form-control" v-model="editEducation.university_name" />
+      </div>
+      <div class="form-group">
+        <label>Details:</label>
+        <input type="text" class="form-control" v-model="editEducation.details" />
       </div>
 
       <input type="submit" class="btn btn-primary" value="Submit" />
@@ -35,7 +30,6 @@
         {{ error }}
       </li>
     </ul>
-    <button v-on:click="deleteCaptstone()">Delete Capstone</button>
   </div>
 </template>
 
@@ -46,10 +40,11 @@ export default {
     return {
       errors: [],
       editEducation: {
-        name: "",
-        description: "",
-        url: "",
-        screenshot: "",
+        start_date: "",
+        end_date: "",
+        degree: "",
+        university_name: "",
+        details: "",
       },
     };
   },

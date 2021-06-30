@@ -13,28 +13,35 @@
       <p><b>Resume: </b>{{ currentStudent.resume_url }}</p>
       <p><b>Github: </b>{{ currentStudent.github_url }}</p>
       <p><b>Photo Url: </b>{{ currentStudent.photo_url }}</p>
-      <router-link to="/students/:id/edit">Edit Student Info</router-link>
+      <router-link to="/students/1/edit">Edit Student Info</router-link>
+      <!--Needs soft-coded :id later-->
     </div>
     <div>
       <h1>Education</h1>
+      <router-link to="/educations/new">New Education</router-link>
+      <br />
       <div v-for="education in educations" v-bind:key="education.id">
-        <p><b>Univeristy:</b> {{ education.university }}</p>
+        <p><b>University:</b> {{ education.university }}</p>
         <p><b>Degree:</b> {{ education.degree }}</p>
         <p><b>Start Date:</b> {{ education.start_date }}</p>
         <p><b>End_Date:</b> {{ education.end_date }}</p>
         <p><b>Details:</b> {{ education.details }}</p>
-        <router-link to="/educations/:id/edit">Edit Education</router-link>
+        <router-link to="/educations/1/edit">Edit Education</router-link>
+        <!--Needs soft-coded :id later-->
       </div>
     </div>
     <div>
       <h1>Experience</h1>
+      <router-link to="/experiences/new">New Experience</router-link>
+      <br />
       <div v-for="experience in experiences" v-bind:key="experience.id">
         <p><b>Company:</b> {{ experience.company_name }}</p>
         <p><b>Job Title:</b> {{ experience.job_title }}</p>
         <p><b>Start Date:</b> {{ experience.start_date }}</p>
         <p><b>End Date:</b> {{ experience.end_date }}</p>
         <p><b>Details:</b> {{ experience.details }}</p>
-        <router-link to="/experiences/:id/edit">Edit Experience</router-link>
+        <router-link to="/experiences/1/edit">Edit Experience</router-link>
+        <!--Needs soft-coded :id later-->
       </div>
     </div>
     <div>
@@ -51,12 +58,15 @@
     </div>
     <div>
       <h1>Capstones</h1>
+      <router-link to="/capstones/new">New Capstone</router-link>
+      <br />
       <div v-for="capstone in capstones" v-bind:key="capstone.id">
         <p><b>Name:</b> {{ capstone.name }}</p>
         <p><b>Description:</b> {{ capstone.description }}</p>
         <p><b>URL:</b> {{ capstone.url }}</p>
         <p><b>Image:</b> {{ capstone.image }}</p>
-        <router-link to="/capstones/:id/edit">Edit Capstone</router-link>
+        <router-link to="/capstones/1/edit">Edit Capstone</router-link>
+        <!--Needs soft-coded :id later-->
       </div>
     </div>
   </div>
@@ -74,92 +84,35 @@ export default {
   data: function () {
     return {
       message: "Welcome to Vue.js!",
-      currentStudent: {
-        first_name: "Brianna",
-        last_name: "Samson",
-        email: "bSamson@gmail.com",
-        phone_number: "650-513-9133",
-        bio: "I love to learn and spend my time surfing!",
-        linkedin_url: "",
-        twitter_handle: "",
-        personal_url: "",
-        resume_url: "",
-        github_url: "",
-        photo_url: "",
-      },
-      educations: [
-        {
-          start_date: "2010",
-          end_date: "2014",
-          degree: "BA in Computer Programming",
-          university: "University of California, Santa Cruz",
-          details: "",
-        },
-        {
-          start_date: "2014",
-          end_date: "2018",
-          degree: "Master's in Computer Science ",
-          university: "Caltech",
-          details: "",
-        },
-      ],
-      experiences: [
-        {
-          start_date: "2018",
-          end_date: "2020",
-          job_title: "Junior Software Engineer",
-          company_name: "Volta Charging",
-          details:
-            "Architect onboard data processing and machine learning solutions.",
-        },
-        {
-          start_date: "2020",
-          end_date: "2021",
-          job_title: "Software Development Engineer",
-          company_name: "WANdisco",
-          details:
-            "Responsible for driving the software development process towards quality-centric methodologies.",
-        },
-      ],
-      skills: [{ name: "basketweaving" }, { name: "carrot shaving" }],
-      editStudent: "",
+      currentStudent: {},
+      educations: [],
+      experiences: [],
+      skills: [],
       newSkill: "",
-      capstones: [
-        {
-          name: "Netflix-Clone",
-          description: "Created a clone of the popular Netflix application!",
-          url: "",
-          image: "",
-        },
-        {
-          name: "StitchFixes",
-          description:
-            "Created a full-stack application where users can shop for clothes online and get recommendations for outfits",
-          url: "",
-          image: "",
-        },
-        {
-          name: "HiFresh",
-          description:
-            "Created a full-stack application where users can search for recipes based off of their pantry ingredients",
-          url: "",
-          image: "",
-        },
-      ],
+      capstones: [],
     };
   },
   created: function () {
-    axios.get(`/students/${this.$route.params.id}`).then((response) => {
+    axios.get("/students/1").then((response) => {
+      //needs soft-coded id for students
       console.log("Students Object: ", response.data);
-      this.editStudent = response.data;
+      this.currentStudent = response.data;
     });
-    axios.get(`/skills/${this.$route.params.id}`).then((response) => {
+    axios.get("/skills").then((response) => {
       console.log("Skills Object: ", response.data);
-      this.editSkill = response.data;
+      this.skills = response.data;
     });
     axios.get("/educations").then((response) => {
-      console.log("Skills Object: ", response.data);
+      console.log("Educations Object: ", response.data);
       this.educations = response.data;
+    });
+    axios.get("/experiences").then((response) => {
+      console.log("Experiences Object: ", response.data);
+      this.experiences = response.data;
+    });
+    axios.get("/capstones").then((response) => {
+      console.log("Capstones Object: ", response.data);
+      this.capstones = response.data;
     });
   },
   methods: {
